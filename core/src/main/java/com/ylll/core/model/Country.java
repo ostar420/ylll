@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -22,11 +24,14 @@ public class Country  implements java.io.Serializable {
     /**
      * 名称
      */
+    @NotEmpty(message = "countryname not allow null")
     private String countryname;
 
     /**
      * 代码
      */
+    @NotEmpty(message = "countrycode not allow null")
+    @Size(min=2,max=30,message="countrycode size is 2-30 ") 
     private String countrycode;
 
     /**

@@ -12,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 
 /**
  *
@@ -71,15 +74,26 @@ public class CountryController {
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     @Transactional(readOnly = false)//需要事务操作必须加入此注解
-    public ModelAndView save(Country country) {
+    public ModelAndView save(@Validated Country country,BindingResult bindingResult ) {
         ModelAndView result = new ModelAndView(redirect_list);
         try {
-            if (country.getId() != null) {
+            if(bindingResult.hasErrors()){  
+            //输出错误信息  
+            List<ObjectError> allErrors=bindingResult.getAllErrors();  
+              
+            for(ObjectError objectError:allErrors){  
+                //输出错误信息  
+                System.out.println(objectError.getDefaultMessage());  
+                }  
+            }  else{
+                  if (country.getId() != null) {
                 countryService.updateAll(country);
             } else {
                 countryService.save(country);
             }
             result.addObject("msg", "success");
+            }
+          
         }
         catch (Exception e) {
             result.addObject("msg", "error");

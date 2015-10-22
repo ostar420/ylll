@@ -27,7 +27,7 @@
     <context:annotation-config/> 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJackson2HttpMessageConverter"
-              class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
                 <value>text/html;charset=UTF-8</value>
@@ -49,7 +49,7 @@
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
-                          value="org.springframework.web.servlet.view.JstlView" />
+                  value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"></property>
     </bean>
@@ -72,7 +72,7 @@
     </mvc:annotation-driven>
     <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
     <bean id="multipartResolver"
-              class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 默认编码 -->
         <property name="defaultEncoding" value="utf-8" />
         <!-- 文件大小最大值 -->
@@ -80,4 +80,27 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
+    
+    <!-- 校验器 -->  
+    <bean id="validator"  
+      class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">  
+        <!-- 校验器-->  
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />  
+        <!-- 指定校验使用的资源文件，在文件中配置校验的错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties -->   
+        <property name="validationMessageSource" ref="messageSource" />  
+    </bean>  
+    <!-- 校验错误信息配置文件 -->  
+    <bean id="messageSource"  
+      class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+        <!-- 资源文件名-->  
+        <property name="basenames">     
+            <list>      
+                <value>classpath:validationMessages</value>   
+            </list>     
+        </property>  
+        <!-- 资源文件编码格式 -->  
+        <property name="fileEncodings" value="utf-8" />  
+        <!-- 对资源文件内容缓存时间，单位秒 -->  
+        <property name="cacheSeconds" value="120" />  
+    </bean>  
 </beans>
