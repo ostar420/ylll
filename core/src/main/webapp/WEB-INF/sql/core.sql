@@ -13,13 +13,12 @@ CREATE TABLE `nc_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '系统日志表';
 
 
-DROP TABLE IF EXISTS `nc_role`;
-CREATE TABLE `nc_role` (
-  `id` int(10) NOT NULL AUTO_INCREMENT  COMMENT '角色编号',
-  `enable` int(10) DEFAULT NULL COMMENT '可以标识,1-可用,0-禁用',
-  `name` varchar(50) DEFAULT NULL COMMENT '角色名称',
-  `roleKey` varchar(50) DEFAULT NULL COMMENT '角色key',
-  `description` varchar(50) DEFAULT NULL COMMENT '角色描述',
+DROP TABLE IF EXISTS `country`;
+
+CREATE TABLE `country` (
+  `id` int(10) NOT NULL AUTO_INCREMENT  ,
+  `countryname` varchar(50) DEFAULT NULL ,
+  `countrycode` varchar(50) DEFAULT NULL ,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '角色表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '测试表';
 

@@ -49,12 +49,12 @@ public class LogAopAction {
     }
 
     private Log getLog(JoinPoint point, String module, String action, String description, String actionTime) {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String methodName = point.getSignature().getName();
         String className = point.getTarget().getClass().getSimpleName();
         String ip = null;
         String user = null;
         try {
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             ip = Common.toIpAddr(request);
         } catch (Exception e) {
             ip = "无法获取登录用户Ip";
