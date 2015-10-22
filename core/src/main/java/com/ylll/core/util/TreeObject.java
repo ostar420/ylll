@@ -17,64 +17,164 @@ public class TreeObject {
 	private String type;
 	private String description;
 	private List<TreeObject> children = new ArrayList<TreeObject>();
-	public Integer getId() {
+
+    /**
+     *
+     * @return
+     */
+    public Integer getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+
+    /**
+     *
+     * @param id
+     */
+    public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getParentId() {
+
+    /**
+     *
+     * @return
+     */
+    public Integer getParentId() {
 		return parentId;
 	}
-	public void setParentId(Integer parentId) {
+
+    /**
+     *
+     * @param parentId
+     */
+    public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
-	public List<TreeObject> getChildren() {
+
+    /**
+     *
+     * @return
+     */
+    public List<TreeObject> getChildren() {
 		return children;
 	}
-	public void setChildren(List<TreeObject> children) {
+
+    /**
+     *
+     * @param children
+     */
+    public void setChildren(List<TreeObject> children) {
 		this.children = children;
 	}
-	public String getName() {
+
+    /**
+     *
+     * @return
+     */
+    public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
 		this.name = name;
 	}
-	public String getParentName() {
+
+    /**
+     *
+     * @return
+     */
+    public String getParentName() {
 		return parentName;
 	}
-	public void setParentName(String parentName) {
+
+    /**
+     *
+     * @param parentName
+     */
+    public void setParentName(String parentName) {
 		this.parentName = parentName;
 	}
-	public String getResKey() {
+
+    /**
+     *
+     * @return
+     */
+    public String getResKey() {
 		return resKey;
 	}
-	public void setResKey(String resKey) {
+
+    /**
+     *
+     * @param resKey
+     */
+    public void setResKey(String resKey) {
 		this.resKey = resKey;
 	}
-	public String getResUrl() {
+
+    /**
+     *
+     * @return
+     */
+    public String getResUrl() {
 		return resUrl;
 	}
-	public void setResUrl(String resUrl) {
+
+    /**
+     *
+     * @param resUrl
+     */
+    public void setResUrl(String resUrl) {
 		this.resUrl = resUrl;
 	}
-	public Integer getLevel() {
+
+    /**
+     *
+     * @return
+     */
+    public Integer getLevel() {
 		return level;
 	}
-	public void setLevel(Integer level) {
+
+    /**
+     *
+     * @param level
+     */
+    public void setLevel(Integer level) {
 		this.level = level;
 	}
-	public String getType() {
+
+    /**
+     *
+     * @return
+     */
+    public String getType() {
 		return type;
 	}
-	public void setType(String type) {
+
+    /**
+     *
+     * @param type
+     */
+    public void setType(String type) {
 		this.type = type;
 	}
-	public String getDescription() {
+
+    /**
+     *
+     * @return
+     */
+    public String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+
+    /**
+     *
+     * @param description
+     */
+    public void setDescription(String description) {
 		this.description = description;
 	}
 }

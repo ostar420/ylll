@@ -66,6 +66,7 @@ public class POIUtils {
 
 	/**
 	 * 根据文件路径和工作薄下标导入Excel数据
+     * @param file
 	 * @param fileName 文件名
 	 * @param sheetIndex 工作薄下标
 	 * @return
@@ -208,7 +209,16 @@ public class POIUtils {
 		return false;
 	}
 	
-	@SuppressWarnings("rawtypes")
+    /**
+     *
+     * @param list
+     * @param clazz
+     * @param sheetName
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    @SuppressWarnings("rawtypes")
 	public static HSSFWorkbook handleDataToExcel(List list,Class clazz,String sheetName,int pageSize) throws Exception{
 		
 		HSSFWorkbook workbook = null;
@@ -282,11 +292,10 @@ public class POIUtils {
 	 * 注解形式导出Excel
 	 * @param response HttpServletResponse
 	 * @param fileName 导出Excel的文件名
-	 * @param List<T> objs 某一个实体类数据集合
+     * @param objs
 	 * @param clazz <T> 某一个实体类
 	 * @param sheetName sheet的名称
 	 * @param pageSize sheet显示多少条数据
-	 * @throws Exception
 	 */
 	@SuppressWarnings("rawtypes")
 	public static void exportToExcel(HttpServletResponse response,String fileName,List objs, Class clazz,

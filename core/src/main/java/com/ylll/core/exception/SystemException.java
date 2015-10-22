@@ -10,37 +10,72 @@ public class SystemException extends RuntimeException {
 
 	private String code;
 
-	public SystemException() {
+    /**
+     *
+     */
+    public SystemException() {
 		super();
 	}
 
-	public SystemException(String message) {
+    /**
+     *
+     * @param message
+     */
+    public SystemException(String message) {
 		super(message);
 	}
 
-	public SystemException(String code, String message) {
+    /**
+     *
+     * @param code
+     * @param message
+     */
+    public SystemException(String code, String message) {
 		super(message);
 		this.code = code;
 	}
 
-	public SystemException(Throwable cause) {
+    /**
+     *
+     * @param cause
+     */
+    public SystemException(Throwable cause) {
 		super(cause);
 	}
 
-	public SystemException(String message, Throwable cause) {
+    /**
+     *
+     * @param message
+     * @param cause
+     */
+    public SystemException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public SystemException(String code, String message, Throwable cause) {
+    /**
+     *
+     * @param code
+     * @param message
+     * @param cause
+     */
+    public SystemException(String code, String message, Throwable cause) {
 		super(message, cause);
 		this.code = code;
 	}
 
-	public String getCode() {
+    /**
+     *
+     * @return
+     */
+    public String getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+    /**
+     *
+     * @param code
+     */
+    public void setCode(String code) {
 		this.code = code;
 	}
 

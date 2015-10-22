@@ -5,6 +5,10 @@ import com.ylll.core.service.PdfService;
 import com.ylll.core.util.Common;
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ * @author YL
+ */
 @Service
 public class PdfServiceImpl implements PdfService {
     

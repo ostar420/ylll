@@ -1,9 +1,15 @@
 package com.ylll.core.util;
 
+/**
+ *
+ * @author YL
+ */
 public class UnicodeUtils {
 
-
-	public UnicodeUtils() {
+    /**
+     *
+     */
+    public UnicodeUtils() {
 
 	}
 
@@ -163,6 +169,16 @@ public class UnicodeUtils {
 	 * 
 	 * and changes special saved chars to their original forms
 	 */
+
+    /**
+     *
+     * @param in
+     * @param off
+     * @param len
+     * @param convtBuf
+     * @return
+     */
+    
 
 	public static String fromUnicode(char[] in, int off, int len,
 			char[] convtBuf) {

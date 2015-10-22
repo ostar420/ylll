@@ -3,6 +3,10 @@ package com.ylll.core.service;
 import com.ylll.core.model.Log;
 import java.util.List;
 
+/**
+ *
+ * @author YL
+ */
 public interface LogService extends BaseService<Log> {
     /**
      * 根据条件分页查询

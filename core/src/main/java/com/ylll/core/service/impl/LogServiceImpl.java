@@ -9,6 +9,10 @@ import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.List;
 
+/**
+ *
+ * @author YL
+ */
 @Service
 public class LogServiceImpl extends BaseServiceImpl<Log> implements LogService {
     

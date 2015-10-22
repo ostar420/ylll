@@ -10,6 +10,10 @@ import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.List;
 
+/**
+ *
+ * @author YL
+ */
 @Service
 public class CountryServiceImpl extends BaseServiceImpl<Country> implements CountryService {
 
@@ -32,18 +36,36 @@ public class CountryServiceImpl extends BaseServiceImpl<Country> implements Coun
         return selectByExample(example);
     }
 
+    /**
+     *
+     * @param entity
+     * @return
+     * @throws Exception
+     */
     @Override
     @SystemLog(module = "测试模块", methods = "添加Service")//凡需要处理业务逻辑的.都需要记录操作日志
     public int save(Country entity) throws Exception {
         return mapper.insert(entity);
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     * @throws Exception
+     */
     @Override
     @SystemLog(module = "测试模块", methods = "删除Service")//凡需要处理业务逻辑的.都需要记录操作日志
     public int delete(Object key) throws Exception {
         return mapper.deleteByPrimaryKey(key);
     }
 
+    /**
+     *
+     * @param entity
+     * @return
+     * @throws Exception
+     */
     @Override
     @SystemLog(module = "测试模块", methods = "更新Service")
     public int updateAll(Country entity) throws Exception {

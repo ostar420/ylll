@@ -3,11 +3,18 @@ package com.ylll.core.util;
 import java.security.MessageDigest;
 import sun.misc.BASE64Encoder;
 
-
-
+/**
+ *
+ * @author YL
+ */
 public class Md5Tool {
 	
-	public static String getMd5(String password){
+    /**
+     *
+     * @param password
+     * @return
+     */
+    public static String getMd5(String password){
 		String str = "";
 		if(password !=null && !password.equals("")){
 			try {

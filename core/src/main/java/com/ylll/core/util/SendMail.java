@@ -14,6 +14,10 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
+/**
+ *
+ * @author YL
+ */
 public class SendMail
 {
   private String smtpServer;
@@ -25,11 +29,25 @@ public class SendMail
   private String subject;
   private String content;
 
-  public SendMail()
+    /**
+     *
+     */
+    public SendMail()
   {
   }
 
-  public SendMail(String smtpServer, Integer smtpPort, String from, String to, String username, String password, String subject, String content)
+    /**
+     *
+     * @param smtpServer
+     * @param smtpPort
+     * @param from
+     * @param to
+     * @param username
+     * @param password
+     * @param subject
+     * @param content
+     */
+    public SendMail(String smtpServer, Integer smtpPort, String from, String to, String username, String password, String subject, String content)
   {
     this.smtpServer = smtpServer;
     this.smtpPort = smtpPort;
@@ -41,7 +59,11 @@ public class SendMail
     this.content = content;
   }
 
-  public boolean sendHtml()
+    /**
+     *
+     * @return
+     */
+    public boolean sendHtml()
   {
     try
     {
@@ -114,68 +136,133 @@ public class SendMail
 //    MailThreadUtil.execute(mailPO);
 //  }
 
+    /**
+     *
+     * @return
+     */
+    
   public String getSmtpServer()
   {
     return this.smtpServer;
   }
 
-  public void setSmtpServer(String smtpServer) {
+    /**
+     *
+     * @param smtpServer
+     */
+    public void setSmtpServer(String smtpServer) {
     this.smtpServer = smtpServer;
   }
 
-  public Integer getSmtpPort() {
+    /**
+     *
+     * @return
+     */
+    public Integer getSmtpPort() {
     return this.smtpPort;
   }
 
-  public void setSmtpPort(Integer smtpPort) {
+    /**
+     *
+     * @param smtpPort
+     */
+    public void setSmtpPort(Integer smtpPort) {
     this.smtpPort = smtpPort;
   }
 
-  public String getFrom() {
+    /**
+     *
+     * @return
+     */
+    public String getFrom() {
     return this.from;
   }
 
-  public void setFrom(String from) {
+    /**
+     *
+     * @param from
+     */
+    public void setFrom(String from) {
     this.from = from;
   }
 
-  public String getTo() {
+    /**
+     *
+     * @return
+     */
+    public String getTo() {
     return this.to;
   }
 
-  public void setTo(String to) {
+    /**
+     *
+     * @param to
+     */
+    public void setTo(String to) {
     this.to = to;
   }
 
-  public String getUsername() {
+    /**
+     *
+     * @return
+     */
+    public String getUsername() {
     return this.username;
   }
 
-  public void setUsername(String username) {
+    /**
+     *
+     * @param username
+     */
+    public void setUsername(String username) {
     this.username = username;
   }
 
-  public String getPassword() {
+    /**
+     *
+     * @return
+     */
+    public String getPassword() {
     return this.password;
   }
 
-  public void setPassword(String password) {
+    /**
+     *
+     * @param password
+     */
+    public void setPassword(String password) {
     this.password = password;
   }
 
-  public String getSubject() {
+    /**
+     *
+     * @return
+     */
+    public String getSubject() {
     return this.subject;
   }
 
-  public void setSubject(String subject) {
+    /**
+     *
+     * @param subject
+     */
+    public void setSubject(String subject) {
     this.subject = subject;
   }
 
-  public String getContent() {
+    /**
+     *
+     * @return
+     */
+    public String getContent() {
     return this.content;
   }
 
-  public void setContent(String content) {
+    /**
+     *
+     * @param content
+     */
+    public void setContent(String content) {
     this.content = content;
   }
 }

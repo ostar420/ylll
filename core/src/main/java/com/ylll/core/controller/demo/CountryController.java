@@ -14,6 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ *
+ * @author YL
+ */
 @Controller
 public class CountryController {
 
@@ -24,6 +28,14 @@ public class CountryController {
 
     private String redirect_list = "redirect:list";
 
+    /**
+     *
+     * @param country
+     * @param page
+     * @param rows
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = {"list", "index", "index.html", ""})
     public ModelAndView getList(Country country,
                                 @RequestParam(required = false, defaultValue = "1") int page,
@@ -37,6 +49,12 @@ public class CountryController {
         return result;
     }
 
+    /**
+     *
+     * @param country
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "view", method = RequestMethod.GET)
     public ModelAndView view(Country country) throws Exception {
         ModelAndView result = new ModelAndView();
@@ -47,6 +65,12 @@ public class CountryController {
         return result;
     }
 
+    /**
+     *
+     * @param country
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     @Transactional(readOnly=false)//需要事务操作必须加入此注解
     public ModelAndView save(Country country) throws Exception {
@@ -59,6 +83,12 @@ public class CountryController {
         return result;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("delete")
     public String delete(Integer id) throws Exception {
         countryService.delete(id);

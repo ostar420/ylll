@@ -13,6 +13,9 @@ package com.ylll.core.conf;
  */
 public class BaseDataLoadder {
     
+    /**
+     *
+     */
     public void init (){
        
        

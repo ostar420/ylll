@@ -22,6 +22,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ *
+ * @author YL
+ */
 public class Common {
         /**
          * 后台访问
@@ -49,8 +53,9 @@ public class Common {
     
 	/**
 	 * String转换double
-	 * @param string
+     * @param dataStr
 	 * @return double
+     * @throws java.lang.Exception
 	 */
 	public static double convertSourData(String dataStr) throws Exception{
 		if(dataStr!=null&&!"".equals(dataStr)){
@@ -75,6 +80,8 @@ public class Common {
 	/**
 	 * 使用率计算
 	 * 
+     * @param free
+     * @param total
 	 * @return
 	 */
 	public static String fromUsage(long free, long total) {
@@ -239,6 +246,7 @@ public class Common {
 
 	/**
 	 * 
+     * @param inputStream
 	 * @return 返回资源的二进制数据 @
 	 */
 	public static byte[] readInputStream(InputStream inputStream) {
@@ -274,8 +282,8 @@ public class Common {
 	/**
 	 * 修改配置　
 	 * 
-	 * @param request
-	 * @param nodeId
+     * @param key
+     * @param value
 	 * @return
 	 * @throws Exception
 	 */

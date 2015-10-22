@@ -4,6 +4,10 @@ import com.ylll.core.model.Country;
 
 import java.util.List;
 
+/**
+ *
+ * @author YL
+ */
 public interface CountryService extends BaseService<Country> {
 
     /**

@@ -1,5 +1,9 @@
 package com.ylll.core.service;
 
+/**
+ *
+ * @author YL
+ */
 public interface PdfService  {
    /**
     * 

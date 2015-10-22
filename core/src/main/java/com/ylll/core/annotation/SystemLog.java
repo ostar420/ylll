@@ -11,9 +11,23 @@ import java.lang.annotation.*;
 @Documented  
 public  @interface SystemLog {  
   
-	String module()  default "";  //模块名称 用户管理
-	String methods()  default "";  //新增用户
-        String description()  default "";  //
+    /**
+     *
+     * @return
+     */
+    String module()  default "";  //模块名称 用户管理
+
+    /**
+     *
+     * @return
+     */
+    String methods()  default "";  //新增用户
+
+    /**
+     *
+     * @return
+     */
+    String description()  default "";  //
   
   
 }  

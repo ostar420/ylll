@@ -16,7 +16,12 @@ import org.springframework.web.context.request.WebRequest;
  */
 public class SpringMVCDateConverter implements WebBindingInitializer { 
 
-  public void initBinder(WebDataBinder binder, WebRequest request) { 
+    /**
+     *
+     * @param binder
+     * @param request
+     */
+    public void initBinder(WebDataBinder binder, WebRequest request) { 
       SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");   
       binder.registerCustomEditor(Date.class, new CustomDateEditor(df,true));   
   } 

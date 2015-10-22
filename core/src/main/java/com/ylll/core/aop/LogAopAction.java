@@ -40,7 +40,11 @@ public class LogAopAction {
     private LogService logService;
     
     //Controller层切点
-    @Pointcut("@annotation(com.ylll.core.annotation.SystemLog)")
+
+    /**
+     *
+     */
+        @Pointcut("@annotation(com.ylll.core.annotation.SystemLog)")
     public void controllerAspect() {
     }
 

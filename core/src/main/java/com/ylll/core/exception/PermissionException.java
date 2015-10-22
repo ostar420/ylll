@@ -10,37 +10,72 @@ public class PermissionException extends RuntimeException {
 
 	private String code;
 
-	public PermissionException() {
+    /**
+     *
+     */
+    public PermissionException() {
 		super();
 	}
 
-	public PermissionException(String message) {
+    /**
+     *
+     * @param message
+     */
+    public PermissionException(String message) {
 		super(message);
 	}
 
-	public PermissionException(String code, String message) {
+    /**
+     *
+     * @param code
+     * @param message
+     */
+    public PermissionException(String code, String message) {
 		super(message);
 		this.code = code;
 	}
 
-	public PermissionException(Throwable cause) {
+    /**
+     *
+     * @param cause
+     */
+    public PermissionException(Throwable cause) {
 		super(cause);
 	}
 
-	public PermissionException(String message, Throwable cause) {
+    /**
+     *
+     * @param message
+     * @param cause
+     */
+    public PermissionException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public PermissionException(String code, String message, Throwable cause) {
+    /**
+     *
+     * @param code
+     * @param message
+     * @param cause
+     */
+    public PermissionException(String code, String message, Throwable cause) {
 		super(message, cause);
 		this.code = code;
 	}
 
-	public String getCode() {
+    /**
+     *
+     * @return
+     */
+    public String getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+    /**
+     *
+     * @param code
+     */
+    public void setCode(String code) {
 		this.code = code;
 	}
 

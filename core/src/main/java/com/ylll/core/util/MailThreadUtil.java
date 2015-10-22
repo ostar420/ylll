@@ -8,6 +8,10 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
+/**
+ *
+ * @author YL
+ */
 public class MailThreadUtil
 {
   private static final Executor threadPool = new ScheduledThreadPoolExecutor(10);
@@ -38,7 +42,11 @@ public class MailThreadUtil
     };
   }
 
-  public static void execute(MailPO mailPO)
+    /**
+     *
+     * @param mailPO
+     */
+    public static void execute(MailPO mailPO)
   {
     threadPool.execute(createTask(mailPO));
   }

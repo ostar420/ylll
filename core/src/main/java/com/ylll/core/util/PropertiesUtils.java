@@ -33,9 +33,7 @@ public class PropertiesUtils {
 	
 
 	/**
-	 * 返回　Properties
-	 * @param 
-	 * @return
+	 * 返回　Properties@return
 	 */
 	public static Properties getProperties(){
 		Properties prop = new Properties();

@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ *
+ * @author YL
+ */
 @Controller
 public class PdfController {
     
@@ -38,7 +42,7 @@ public class PdfController {
     }
     
     /**
-     * 
+     * 返回可读取pdf
      * @param pdfName
      * @param request
      * @return

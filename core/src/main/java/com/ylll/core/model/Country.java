@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ *
+ * @author YL
+ */
 public class Country  implements java.io.Serializable {
     /**
      * 主键

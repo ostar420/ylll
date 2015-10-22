@@ -24,7 +24,15 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class MyExceptionHandler implements HandlerExceptionResolver {
 
-        @Override
+    /**
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @return
+     */
+    @Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
 		Map<String, Object> model = new HashMap<String, Object>();
