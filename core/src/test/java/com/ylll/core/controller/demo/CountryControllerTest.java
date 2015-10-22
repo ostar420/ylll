@@ -25,9 +25,12 @@ public class CountryControllerTest  extends BaseControllerTest{
     private CountryService countryService;
     
      @Test
-    public void testFindByAttribute() throws Exception {
-        
-        System.out.println();
+    public void testSave() throws Exception {
+        Country country = new Country();
+        country.setCountryname("中国");
+        country.setCountrycode("ZH");
+        int result =  countryService.save(country);
+        assertEquals(1, result);
     }
     /**
      * 
