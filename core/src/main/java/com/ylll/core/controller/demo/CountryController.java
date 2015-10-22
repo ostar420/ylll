@@ -72,6 +72,8 @@ public class CountryController {
      * @param country
      * @return
      */
+//在需要校验的pojo前边加@Validated，在需要校验的pojo后边添加BindingResult bindingResult接收校验出错信息  
+//注意：@Validatedh和BindingResult bindingResult是配对出现，并且在形参中出现的顺序是固定的(一前一后)  
     @RequestMapping(value = "save", method = RequestMethod.POST)
     @Transactional(readOnly = false)//需要事务操作必须加入此注解
     public ModelAndView save(@Validated Country country,BindingResult bindingResult ) {
@@ -85,6 +87,8 @@ public class CountryController {
                 //输出错误信息  
                 System.out.println(objectError.getDefaultMessage());  
                 }  
+            
+            result.addObject("allErrors",allErrors);  
             }  else{
                   if (country.getId() != null) {
                 countryService.updateAll(country);
