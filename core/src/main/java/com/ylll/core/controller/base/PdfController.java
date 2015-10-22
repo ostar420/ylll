@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author YL
  */
 @Controller
+@RequestMapping(value = "/pdf")
 public class PdfController {
     
     private final String read_pdf_path = "system"+Common.FILE_SEPARATOR+"base"+Common.FILE_SEPARATOR+"pdf";
@@ -33,7 +34,7 @@ public class PdfController {
      * @return 
      * @throws java.lang.Exception 
      */
-    @RequestMapping({"pdf/readpdf/{pdfName}"})
+    @RequestMapping({"readpdf/{pdfName}"})
     public ModelAndView readpdf(@PathVariable("pdfName") String pdfName) throws Exception {
         ModelAndView modelAndView = new ModelAndView(read_pdf_path);
         pdfService.getPdfPath(pdfName);
@@ -48,7 +49,7 @@ public class PdfController {
      * @return
      * @throws Exception 
      */
-    @RequestMapping({"pdf/getpdf/{pdfName}"})
+    @RequestMapping({"getpdf/{pdfName}"})
     @ResponseBody
     public ResponseEntity<byte[]> getpdf(@PathVariable("pdfName") String pdfName, HttpServletRequest request) throws  Exception {
         HttpHeaders headers = new HttpHeaders();
