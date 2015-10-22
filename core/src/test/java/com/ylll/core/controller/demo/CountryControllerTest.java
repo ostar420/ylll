@@ -9,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import com.ylll.core.controller.BaseControllerTest;
 import com.ylll.core.model.Country;
 import com.ylll.core.service.CountryService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import static org.junit.Assert.assertEquals;
@@ -22,34 +23,40 @@ import org.springframework.mock.web.MockHttpServletResponse;
  */
 public class CountryControllerTest  extends BaseControllerTest{
     @Inject
-    private CountryService countryService;
+    private CountryController countryController;
     
-//     @Test
-//    public void testSave() throws Exception {
-//        Country country = new Country();
-//        country.setCountryname("中国");
-//        country.setCountrycode("ZH");
-//        int result =  countryService.save(country);
-//        assertEquals(1, result);
-//    }
+     @Test
+    public void testSave() throws Exception {
+        List<Country> list = new ArrayList<>();
+        Country country = new Country();
+        country.setCountryname("中国");
+        country.setCountrycode("ZH");
+        list.add(country);
+        country.setCountryname("中国1");
+        list.add(country);
+        country.setCountryname("中国2");
+        list.add(country);
+        int result =  countryController.batchInsert(list);
+        assertEquals(3, result);
+    }
     /**
      * 
      * @throws Exception 
      */
-    @Test
-    public void testGetList() throws Exception {
-      
-        MockHttpServletRequest request = new MockHttpServletRequest();  
-        MockHttpServletResponse response = new MockHttpServletResponse();  
-        
-        Country country = new Country();
-        List<Country> countryList = countryService.selectByCountry(country, 1, 10);
-        PageInfo<Country>  pageinfo = new PageInfo<>(countryList);
-        //assertEquals(1, pageinfo.getFirstPage());
-       // assertEquals(10, pageinfo.getSize());
-        
-
-    }
+//    @Test
+//    public void testGetList() throws Exception {
+//      
+//        MockHttpServletRequest request = new MockHttpServletRequest();  
+//        MockHttpServletResponse response = new MockHttpServletResponse();  
+//        
+//        Country country = new Country();
+//        List<Country> countryList = countryService.selectByCountry(country, 1, 10);
+//        PageInfo<Country>  pageinfo = new PageInfo<>(countryList);
+//        //assertEquals(1, pageinfo.getFirstPage());
+//       // assertEquals(10, pageinfo.getSize());
+//        
+//
+//    }
 
     
     

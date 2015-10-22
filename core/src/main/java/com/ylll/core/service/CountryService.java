@@ -20,5 +20,8 @@ public interface CountryService extends BaseService<Country> {
      * @throws java.lang.Exception
      */
     List<Country> selectByCountry(Country country, int page, int rows) throws Exception;
+    
+     int batchInsertCountry(List<Country> list) throws Exception;
+     int batchDeleteCountry(List<Integer> list) throws Exception;
 
 }

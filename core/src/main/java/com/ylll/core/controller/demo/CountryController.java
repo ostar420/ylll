@@ -1,7 +1,6 @@
 package com.ylll.core.controller.demo;
 
 import com.github.pagehelper.PageInfo;
-import com.ylll.core.annotation.SystemLog;
 import com.ylll.core.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,9 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
-    private String page_list = "index";
+    private final String page_list = "index";
 
-    private String redirect_list = "redirect:list";
+    private final String redirect_list = "redirect:list";
 
     /**
      *
@@ -38,8 +37,8 @@ public class CountryController {
      */
     @RequestMapping(value = {"list", "index", "index.html", ""})
     public ModelAndView getList(Country country,
-                                @RequestParam(required = false, defaultValue = "1") int page,
-                                @RequestParam(required = false, defaultValue = "10") int rows) throws Exception {
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int rows) throws Exception {
         ModelAndView result = new ModelAndView(page_list);
         List<Country> countryList = countryService.selectByCountry(country, page, rows);
         result.addObject("pageInfo", new PageInfo<Country>(countryList));
@@ -69,18 +68,41 @@ public class CountryController {
      *
      * @param country
      * @return
-     * @throws Exception
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    @Transactional(readOnly=false)//需要事务操作必须加入此注解
-    public ModelAndView save(Country country) throws Exception {
+    @Transactional(readOnly = false)//需要事务操作必须加入此注解
+    public ModelAndView save(Country country) {
         ModelAndView result = new ModelAndView(redirect_list);
-        if (country.getId() != null) {
-            countryService.updateAll(country);
-        } else {
-            countryService.save(country);
+        try {
+            if (country.getId() != null) {
+                countryService.updateAll(country);
+            } else {
+                countryService.save(country);
+            }
+            result.addObject("msg", "success");
+        }
+        catch (Exception e) {
+            result.addObject("msg", "error");
+            System.out.println("save error");
         }
         return result;
+    }
+    
+    
+     /**
+     *
+     * @param list
+     * @return
+     */
+    @RequestMapping(value = "batchInsert", method = RequestMethod.POST)
+    @Transactional(readOnly = false)//需要事务操作必须加入此注解
+    public int batchInsert(List<Country> list) {
+        try {
+            return  countryService.batchInsertCountry(list);
+        }
+        catch (Exception e) {
+            return -1;
+        }
     }
 
     /**

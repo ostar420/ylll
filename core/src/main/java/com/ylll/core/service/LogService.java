@@ -18,4 +18,6 @@ public interface LogService extends BaseService<Log> {
      * @throws java.lang.Exception
      */
     List<Log> selectByLog(Log log, int page, int rows) throws Exception;
+    
+   
 }

@@ -2,6 +2,7 @@ package com.ylll.core.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.ylll.core.annotation.SystemLog;
+import com.ylll.core.mapper.CountryMapper;
 import com.ylll.core.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -16,9 +18,12 @@ import java.util.List;
  */
 @Service
 public class CountryServiceImpl extends BaseServiceImpl<Country> implements CountryService {
-
+    
+    
+    @Autowired
+    protected CountryMapper countryMapper;
     @Override
-    @SystemLog(module = "测试模块", methods = "分页查询Service")//凡需要处理业务逻辑的.都需要记录操作日志
+    //@SystemLog(module = "测试模块", methods = "分页查询Service")//凡需要处理业务逻辑的.都需要记录操作日志
     public List<Country> selectByCountry(Country country, int page, int rows) throws Exception {
         Example example = new Example(Country.class);
         Example.Criteria criteria = example.createCriteria();
@@ -71,4 +76,18 @@ public class CountryServiceImpl extends BaseServiceImpl<Country> implements Coun
     public int updateAll(Country entity) throws Exception {
         return mapper.updateByPrimaryKey(entity);
     }
+
+    @Override
+    @SystemLog(module = "测试模块", methods = "批量添加")
+    public int batchInsertCountry(List<Country> list) throws Exception {
+      return   countryMapper.batchInsertCountry(list);
+    }
+
+    @Override
+     @SystemLog(module = "测试模块", methods = "批量删除")
+    public int batchDeleteCountry(List<Integer> list) throws Exception {
+        return   countryMapper.batchDeleteCountry(list);
+    }
+    
+  
 }
