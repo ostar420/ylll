@@ -5,21 +5,17 @@
  */
 package com.ylll.core.conf;
 
-
-
 /**
- *
- * 项目启动加载类
+ *初始化系统基本信息
+ * @author YL
  */
-public class BaseDataLoadder {
+public class InitBaseProperties {
     
     /**
-     *加载方法
-     */
-    public void init (){
-        new InitBaseProperties().init();
+      * 初始化
+      */
+    public  void init(){
+       // System.setProperty("ylll.log4j.path", realPathDir);
     }
-    
-     
     
 }

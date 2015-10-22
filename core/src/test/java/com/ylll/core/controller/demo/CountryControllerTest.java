@@ -24,14 +24,14 @@ public class CountryControllerTest  extends BaseControllerTest{
     @Inject
     private CountryService countryService;
     
-     @Test
-    public void testSave() throws Exception {
-        Country country = new Country();
-        country.setCountryname("中国");
-        country.setCountrycode("ZH");
-        int result =  countryService.save(country);
-        assertEquals(1, result);
-    }
+//     @Test
+//    public void testSave() throws Exception {
+//        Country country = new Country();
+//        country.setCountryname("中国");
+//        country.setCountrycode("ZH");
+//        int result =  countryService.save(country);
+//        assertEquals(1, result);
+//    }
     /**
      * 
      * @throws Exception 
