@@ -79,8 +79,8 @@ public class CountryController {
     @Transactional(readOnly = false)//需要事务操作必须加入此注解
     public ModelAndView save(@Valid  Country country,BindingResult bindingResult ) {
         ModelAndView result = new ModelAndView(redirect_list);
-        try {
             System.out.println("bindingResult = " + bindingResult.hasErrors());
+        try {
             if(bindingResult.hasErrors()){  
             //输出错误信息  
                 

@@ -51,7 +51,7 @@ public class Country  implements java.io.Serializable {
     /**
      * 代码
      */
-     @NotNull(message = "countrycode not allow null")
+    @NotNull(message = "countrycode not allow null")
     @Size(min=2,max=30,message="countrycode size is 2-30 ") 
     private String countrycode;
 

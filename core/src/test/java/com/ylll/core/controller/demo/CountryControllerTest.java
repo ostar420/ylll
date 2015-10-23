@@ -5,59 +5,76 @@
  */
 package com.ylll.core.controller.demo;
 
-import com.github.pagehelper.PageInfo;
 import com.ylll.core.controller.BaseControllerTest;
-import com.ylll.core.model.Country;
-import com.ylll.core.service.CountryService;
-import java.util.ArrayList;
-import java.util.List;
-import javax.inject.Inject;
-import static org.junit.Assert.assertEquals;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
  *
  * @author YL
  */
-public class CountryControllerTest  extends BaseControllerTest{
-    @Inject
-    private CountryController countryController;
-    
-     @Test
-    public void testSave() throws Exception {
-        List<Country> list = new ArrayList<>();
-        Country country = new Country();
-        country.setCountryname("中国");
-        country.setCountrycode("ZH");
-        list.add(country);
-        country.setCountryname("中国1");
-        list.add(country);
-        country.setCountryname("中国2");
-        list.add(country);
-        int result =  countryController.batchInsert(list);
-        assertEquals(3, result);
-    }
-    /**
-     * 
-     * @throws Exception 
-     */
-//    @Test
-//    public void testGetList() throws Exception {
-//      
-//        MockHttpServletRequest request = new MockHttpServletRequest();  
-//        MockHttpServletResponse response = new MockHttpServletResponse();  
-//        
-//        Country country = new Country();
-//        List<Country> countryList = countryService.selectByCountry(country, 1, 10);
-//        PageInfo<Country>  pageinfo = new PageInfo<>(countryList);
-//        //assertEquals(1, pageinfo.getFirstPage());
-//       // assertEquals(10, pageinfo.getSize());
-//        
-//
-//    }
+public class CountryControllerTest extends BaseControllerTest{
 
-    
+    /**
+     * Test of getList method, of class CountryController.
+     */
+    @Test
+    public void testGetList() throws Exception {
+        System.out.println("getList");
+       
+    }
+
+    /**
+     * Test of view method, of class CountryController.
+     */
+    @Test
+    public void testView() throws Exception {
+        System.out.println("view");
+       
+    }
+
+    /**
+     * Test of save method, of class CountryController.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSave() throws Exception {
+        System.out.println("save");
+         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/save").param("countryname", "z").param("countrycode", "z"))  
+            .andExpect(MockMvcResultMatchers.view().name("redirect:list"))  
+            //.andExpect(MockMvcResultMatchers.model().attributeExists("allErrors"))  
+                // setValidator(Validator validator)//：设置验证器
+            .andDo(MockMvcResultHandlers.print())  
+            .andReturn();  
+      
+         //Assert.assertNotNull(result.getModelAndView().getModel().get("allErrors"));  
+       
+    }
+
+    /**
+     * Test of batchInsert method, of class CountryController.
+     */
+    @Test
+    public void testBatchInsert() {
+        System.out.println("batchInsert");
+        
+    }
+
+    /**
+     * Test of delete method, of class CountryController.
+     */
+    @Test
+    public void testDelete() throws Exception {
+        System.out.println("delete");
+        
+    }
     
 }
