@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 
 /**
  *
@@ -70,17 +70,20 @@ public class CountryController {
     /**
      *
      * @param country
+     * @param bindingResult
      * @return
      */
 //在需要校验的pojo前边加@Validated，在需要校验的pojo后边添加BindingResult bindingResult接收校验出错信息  
-//注意：@Validatedh和BindingResult bindingResult是配对出现，并且在形参中出现的顺序是固定的(一前一后)  
+//注意：@Validated和BindingResult bindingResult是配对出现，并且在形参中出现的顺序是固定的(一前一后)  
     @RequestMapping(value = "save", method = RequestMethod.POST)
     @Transactional(readOnly = false)//需要事务操作必须加入此注解
-    public ModelAndView save(@Validated Country country,BindingResult bindingResult ) {
+    public ModelAndView save(@Valid  Country country,BindingResult bindingResult ) {
         ModelAndView result = new ModelAndView(redirect_list);
         try {
+            System.out.println("bindingResult = " + bindingResult.hasErrors());
             if(bindingResult.hasErrors()){  
             //输出错误信息  
+                
             List<ObjectError> allErrors=bindingResult.getAllErrors();  
               
             for(ObjectError objectError:allErrors){  
