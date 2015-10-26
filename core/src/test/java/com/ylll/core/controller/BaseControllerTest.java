@@ -7,16 +7,22 @@ package com.ylll.core.controller;
 
 
 
+import net.sf.json.JSONObject;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.support.FormattingConversionServiceFactoryBean;
+import org.springframework.mock.web.MockMultipartHttpServletRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.context.WebApplicationContext;
 /**
  *
@@ -35,5 +41,25 @@ public class BaseControllerTest extends AbstractTransactionalJUnit4SpringContext
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();  
     }  
     @Test
-    public void testMain(){}
+    public void testMain(){
+     MockMultipartHttpServletRequest request=new MockMultipartHttpServletRequest();
+  request.addParameter("Article.title","title");
+  request.addParameter("Article.summary","summary");
+  request.addParameter("Article.text","text");
+  request.addParameter("Article.published","on");
+  Object a=new Object();
+  ServletRequestDataBinder binder=new ServletRequestDataBinder(a);
+  //binder.setDisallowedFields(new String[]{"published"});
+  binder.bind(request);
+  BindingResult result=binder.getBindingResult();
+  
+  System.out.println(JSONObject.fromObject(a));
+//  assertEquals(result.getErrorCount(),0);
+//  assertEquals(a.getTitle(),"title");
+//  assertEquals(a.getSummary(),"summary");
+//  assertEquals(a.getPublished(),"on");
+    
+    
+    
+    }
 }

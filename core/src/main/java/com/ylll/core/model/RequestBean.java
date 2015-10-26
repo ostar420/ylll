@@ -15,7 +15,7 @@ public class RequestBean<T> {
     private String  project_seq;
     private String  project_version;
     private T data ;
-
+ 
     /**
      * @return the project_seq
      */

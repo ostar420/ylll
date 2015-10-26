@@ -6,7 +6,9 @@
 package com.ylll.core.util;
 
 import com.ylll.core.model.RequestBean;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import net.sf.json.JSONObject;
 import org.springframework.web.bind.ServletRequestDataBinder;
 
 /**
@@ -22,6 +24,7 @@ public class SpringRequestToBean<T> {
      * @throws Exception 
      */
     public RequestBean<T> requestToBean(HttpServletRequest request) throws Exception{
+        
         RequestBean<T> bean = new RequestBean<T>();
         ServletRequestDataBinder binder = new ServletRequestDataBinder(bean);
         binder.bind(request);

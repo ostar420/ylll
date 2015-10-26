@@ -4,17 +4,17 @@
 package com.ylll.core.interceptor;
 
 import com.ylll.core.annotation.ParamVali;
-import com.ylll.core.model.RequestBean;
 import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.util.ParamValiUtil;
-import com.ylll.core.util.SpringRequestToBean;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.sf.json.JSONObject;
+import net.sf.json.JSONArray;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -50,12 +50,14 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 
         }
         
-//        CountryList c = new CountryList();
-//        ServletRequestDataBinder binder = new ServletRequestDataBinder(c);
-//        binder.bind(request);
-//        System.out.println(JSONObject.fromObject(c));
-        RequestBean bean = new SpringRequestToBean().requestToBean(request);
-        System.out.println(JSONObject.fromObject(bean));
+        List<Country> list = new ArrayList<>();
+        ServletRequestDataBinder binder = new ServletRequestDataBinder(list);
+        binder.bind(request);
+        System.out.println(JSONArray.fromObject(list));
+        
+        
+//        RequestBean<Country> bean = new SpringRequestToBean<Country>().requestToBean(request);
+//        System.out.println(JSONObject.fromObject(bean));
         if (handler.getClass().isAssignableFrom(HandlerMethod.class)) {
 
             ParamVali paramVali = ((HandlerMethod) handler).getMethodAnnotation(ParamVali.class);
