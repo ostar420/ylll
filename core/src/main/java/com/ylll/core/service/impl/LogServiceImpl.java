@@ -1,7 +1,7 @@
 package com.ylll.core.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.ylll.core.model.Log;
+import com.ylll.core.mybatis.model.Log;
 import com.ylll.core.service.LogService;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;

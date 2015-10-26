@@ -33,7 +33,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
      * @return
      */
     @Override
-	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("ex", ex);
@@ -48,7 +48,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 				}else if(ex instanceof ParameterException) {
 					response.setStatus(1002);//参数异常返回 1002
 					return new ModelAndView("exception/error-parameter", model);
-				}else if(ex instanceof PermissionException) {
+				}else if(ex instanceof AccessDeniedException) {
 					response.setStatus(1003);//权限异常返回 1003
 					return new ModelAndView("exception/error-permission", model);
 				}  else {
@@ -61,7 +61,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 						response.setStatus(1001);//业务异常返回 1001
 					}else if(ex instanceof ParameterException) {
 						response.setStatus(1002);//参数异常返回 1002
-					}else if(ex instanceof PermissionException) {
+					}else if(ex instanceof AccessDeniedException) {
 						response.setStatus(1003);//权限异常返回 1003
 					} else {
 						response.setStatus(1000);//其他异常返回 1000

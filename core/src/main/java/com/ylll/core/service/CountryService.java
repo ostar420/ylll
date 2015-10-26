@@ -1,6 +1,6 @@
 package com.ylll.core.service;
 
-import com.ylll.core.model.Country;
+import com.ylll.core.mybatis.model.Country;
 
 import java.util.List;
 

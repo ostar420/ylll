@@ -27,8 +27,8 @@
         <div class="wrapper">
             <div class="middle">
                 <!-- 显示错误信息 -->  
-                <c:if test="${allErrors}!=null">  
-                    <c:forEach items="${allErrors}" var="error">  
+                <c:if test="${allerrors}!=null">  
+                    <c:forEach items="${allerrors}" var="error">  
                         <font color="red">${error.defaultMessage}</font><br/>  
                     </c:forEach>  
                 </c:if> 

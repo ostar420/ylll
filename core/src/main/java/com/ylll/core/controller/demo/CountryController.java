@@ -1,7 +1,8 @@
 package com.ylll.core.controller.demo;
 
 import com.github.pagehelper.PageInfo;
-import com.ylll.core.model.Country;
+import com.ylll.core.annotation.ParamVali;
+import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import javax.validation.Valid;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -25,7 +28,8 @@ public class CountryController {
 
     @Autowired
     private CountryService countryService;
-
+    @Autowired
+    Validator validator;
     private final String page_list = "index";
 
     private final String redirect_list = "redirect:list";
@@ -67,40 +71,50 @@ public class CountryController {
         return result;
     }
 
+    @RequestMapping(value = "vali")
+    @ResponseBody
+    public void vali() {
+        
+    }
+
     /**
      *
      * @param country
      * @param bindingResult
      * @return
      */
-//在需要校验的pojo前边加@Validated，在需要校验的pojo后边添加BindingResult bindingResult接收校验出错信息  
-//注意：@Validated和BindingResult bindingResult是配对出现，并且在形参中出现的顺序是固定的(一前一后)  
+    @ParamVali(bean=Country.class,params = {"countrycode"})
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    @Transactional(readOnly = false)//需要事务操作必须加入此注解
-    public ModelAndView save(@Valid  Country country,BindingResult bindingResult ) {
+    // @Transactional(readOnly = false)//需要事务操作必须加入此注解
+    public ModelAndView save(@Valid Country country, BindingResult bindingResult) {
+        
+        
         ModelAndView result = new ModelAndView(redirect_list);
-            System.out.println("bindingResult = " + bindingResult.hasErrors());
+       // validator.validate(country, bindingResult);
+       // System.out.println("bindingResult = " + bindingResult.hasErrors());
         try {
-            if(bindingResult.hasErrors()){  
+            if (bindingResult.hasErrors()) {
             //输出错误信息  
+
+                List<ObjectError> allErrors = bindingResult.getAllErrors();
                 
-            List<ObjectError> allErrors=bindingResult.getAllErrors();  
-              
-            for(ObjectError objectError:allErrors){  
-                //输出错误信息  
-                System.out.println(objectError.getDefaultMessage());  
-                }  
-            
-            result.addObject("allErrors",allErrors);  
-            }  else{
-                  if (country.getId() != null) {
-                countryService.updateAll(country);
+result.addObject("allerrors", allErrors);
+                for (ObjectError objectError : allErrors) {
+                    //输出错误信息  
+                    System.out.println(objectError.getDefaultMessage());
+                }
+
+                
+                System.out.println("vali error");
             } else {
-                countryService.save(country);
+                if (country.getId() != null) {
+                    countryService.updateAll(country);
+                } else {
+                    countryService.save(country);
+                }
+                result.addObject("msg", "success");
             }
-            result.addObject("msg", "success");
-            }
-          
+
         }
         catch (Exception e) {
             result.addObject("msg", "error");
@@ -108,9 +122,8 @@ public class CountryController {
         }
         return result;
     }
-    
-    
-     /**
+
+    /**
      *
      * @param list
      * @return
@@ -119,7 +132,7 @@ public class CountryController {
     @Transactional(readOnly = false)//需要事务操作必须加入此注解
     public int batchInsert(List<Country> list) {
         try {
-            return  countryService.batchInsertCountry(list);
+            return countryService.batchInsertCountry(list);
         }
         catch (Exception e) {
             return -1;

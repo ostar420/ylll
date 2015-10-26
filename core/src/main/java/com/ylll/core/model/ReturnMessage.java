@@ -1,4 +1,6 @@
-package com.ylll.core.util;
+package com.ylll.core.model;
+
+import net.sf.json.JSONObject;
 
 /**
  *
@@ -103,6 +105,9 @@ public class ReturnMessage {
         this.obj = obj;
     }
     
-    
+    @Override
+    public String toString(){
+        return JSONObject.fromObject(this).toString();
+    }
     
 }

@@ -2,8 +2,8 @@ package com.ylll.core.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.ylll.core.annotation.SystemLog;
-import com.ylll.core.mapper.CountryMapper;
-import com.ylll.core.model.Country;
+import com.ylll.core.mybatis.mapper.CountryMapper;
+import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;

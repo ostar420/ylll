@@ -1,5 +1,5 @@
 
-package com.ylll.core.model;
+package com.ylll.core.mybatis.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *@AssertTrue //用于boolean字段，该字段只能为true  
@@ -45,14 +46,16 @@ public class Country  implements java.io.Serializable {
     /**
      * 名称
      */
-    @Pattern (regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message="邮件格式错误")  
+    //@Pattern (regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message="邮件格式错误")  
+    @NotNull
+    @Email
     private String countryname;
 
     /**
      * 代码
      */
-    @NotNull(message = "countrycode not allow null")
-    @Size(min=2,max=30,message="countrycode size is 2-30 ") 
+    @NotNull
+    @Size(min=2,max=30) 
     private String countrycode;
 
     /**

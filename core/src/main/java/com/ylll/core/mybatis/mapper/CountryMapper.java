@@ -1,6 +1,6 @@
-package com.ylll.core.mapper;
+package com.ylll.core.mybatis.mapper;
 
-import com.ylll.core.model.Country;
+import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.util.MyMapper;
 import java.util.List;
 

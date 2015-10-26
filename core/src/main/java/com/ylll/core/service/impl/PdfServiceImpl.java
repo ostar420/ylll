@@ -1,6 +1,6 @@
 package com.ylll.core.service.impl;
 
-import com.ylll.core.exception.PermissionException;
+import com.ylll.core.exception.AccessDeniedException;
 import com.ylll.core.service.PdfService;
 import com.ylll.core.util.Common;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class PdfServiceImpl implements PdfService {
     public String getPdfPath(String pdf) throws Exception {
         
         if(!getPdfPermission(pdf)){
-            throw  new PermissionException("has no permission for the file:"+pdf);
+            throw  new AccessDeniedException("has no permission for the file:"+pdf);
         } 
         
         

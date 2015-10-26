@@ -25,7 +25,7 @@
     <bean id="exceptionHandler" class="com.ylll.core.exception.MyExceptionHandler"/>
     <!-- 初始化数据 -->
 	
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+    <bean id="configproperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
         <property name ="locations">
             <list>
                 <value>classpath:config.properties</value>
@@ -62,7 +62,7 @@
                 <value>classpath:mapper/*.xml</value>
             </array>
         </property>
-        <property name="typeAliasesPackage" value="com.ylll.core.model"/>
+        <property name="typeAliasesPackage" value="com.ylll.core.mybatis.model"/>
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
@@ -78,7 +78,7 @@
     </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ylll.core.mapper"/>
+        <property name="basePackage" value="com.ylll.core.mybatis.mapper"/>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
         <property name="markerInterface" value="com.ylll.core.util.MyMapper"/>
         <!-- 通用Mapper通过属性注入进行配置，默认不配置时会注册Mapper<T>接口

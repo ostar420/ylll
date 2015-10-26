@@ -1,4 +1,4 @@
-package com.ylll.core.model;
+package com.ylll.core.mybatis.model;
 
 import java.util.Date;
 import javax.persistence.Column;

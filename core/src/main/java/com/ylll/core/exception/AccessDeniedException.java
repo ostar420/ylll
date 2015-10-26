@@ -1,9 +1,9 @@
 package com.ylll.core.exception;
 
 /**
- * 用户权限异常 throw new PermissionException("XXXX")
+ * 用户权限异常 throw new AccessDeniedException("XXXX")
  */
-public class PermissionException extends RuntimeException {
+public class AccessDeniedException extends RuntimeException {
 
 	/** serialVersionUID */
 	private static final long serialVersionUID = 2332608236621015980L;
@@ -13,7 +13,7 @@ public class PermissionException extends RuntimeException {
     /**
      *
      */
-    public PermissionException() {
+    public AccessDeniedException() {
 		super();
 	}
 
@@ -21,7 +21,7 @@ public class PermissionException extends RuntimeException {
      *
      * @param message
      */
-    public PermissionException(String message) {
+    public AccessDeniedException(String message) {
 		super(message);
 	}
 
@@ -30,7 +30,7 @@ public class PermissionException extends RuntimeException {
      * @param code
      * @param message
      */
-    public PermissionException(String code, String message) {
+    public AccessDeniedException(String code, String message) {
 		super(message);
 		this.code = code;
 	}
@@ -39,7 +39,7 @@ public class PermissionException extends RuntimeException {
      *
      * @param cause
      */
-    public PermissionException(Throwable cause) {
+    public AccessDeniedException(Throwable cause) {
 		super(cause);
 	}
 
@@ -48,7 +48,7 @@ public class PermissionException extends RuntimeException {
      * @param message
      * @param cause
      */
-    public PermissionException(String message, Throwable cause) {
+    public AccessDeniedException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
@@ -58,7 +58,7 @@ public class PermissionException extends RuntimeException {
      * @param message
      * @param cause
      */
-    public PermissionException(String code, String message, Throwable cause) {
+    public AccessDeniedException(String code, String message, Throwable cause) {
 		super(message, cause);
 		this.code = code;
 	}
