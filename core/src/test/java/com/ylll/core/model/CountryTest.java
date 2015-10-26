@@ -73,38 +73,38 @@ public class CountryTest  {
 //        while (it.hasNext()) {
 //            System.out.println(it.next().getMessage());
 //        }
-        
-        Map<String,String> map = new HashMap<>();
-        map.put("countryname", "z");
-        
-        List<Country> list = new ArrayList<>();
-        Country country  = new Country();
-        country.setCountryname("2");
-        Country country1  = new Country();
-        country1.setCountrycode("1");
-        list.add(country);
-        list.add(country1);
-        CountryList clist = new CountryList();
-        clist.setList(list);
+//        
+//        Map<String,String> map = new HashMap<>();
+//        map.put("countryname", "z");
+//        
+//        List<Country> list = new ArrayList<>();
+//        Country country  = new Country();
+//        country.setCountryname("2");
+//        Country country1  = new Country();
+//        country1.setCountrycode("1");
+//        list.add(country);
+//        list.add(country1);
+//        CountryList clist = new CountryList();
+//        clist.setList(list);
+////        
+////        
+////        
+//        String json = "{\"list\":[{\"countrycode\":\"\",\"countryname\":\"2\",\"id\":0},{\"countrycode\":\"1\",\"countryname\":\"\",\"id\":0}]}";
+//        JSONObject obj = JSONObject.fromObject(json);
 //        
 //        
 //        
-        String json = "{\"list\":[{\"countrycode\":\"\",\"countryname\":\"2\",\"id\":0},{\"countrycode\":\"1\",\"countryname\":\"\",\"id\":0}]}";
-        JSONObject obj = JSONObject.fromObject(json);
-        
-        
-        
-        CountryList cli = (CountryList)JSONObject.toBean(obj, CountryList.class);
-          CountryList cliCopy = copy(obj,CountryList.class);
-         List<Country> lists =cli.getList();
-         System.out.println("lists = " + lists.size());
-        System.out.println(JSONObject.fromObject(cliCopy));
-        Set<ConstraintViolation<CountryList>> constraintViolations =
-        validator.validate(cliCopy);
-         Iterator<ConstraintViolation<CountryList>> it =  constraintViolations.iterator();
-         while (it.hasNext()) {
-           System.out.println(it.next().getMessage());
-        }
+//        CountryList cli = (CountryList)JSONObject.toBean(obj, CountryList.class);
+//          CountryList cliCopy = copy(obj,CountryList.class);
+//         List<Country> lists =cli.getList();
+//         System.out.println("lists = " + lists.size());
+//        System.out.println(JSONObject.fromObject(cliCopy));
+//        Set<ConstraintViolation<CountryList>> constraintViolations =
+//        validator.validate(cliCopy);
+//         Iterator<ConstraintViolation<CountryList>> it =  constraintViolations.iterator();
+//         while (it.hasNext()) {
+//           System.out.println(it.next().getMessage());
+//        }
        // assertEquals(2, constraintViolations.size());
        //assertEquals("may not be null", constraintViolations.iterator().next().getMessage());
 

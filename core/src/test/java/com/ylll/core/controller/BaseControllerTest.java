@@ -42,18 +42,18 @@ public class BaseControllerTest extends AbstractTransactionalJUnit4SpringContext
     }  
     @Test
     public void testMain(){
-     MockMultipartHttpServletRequest request=new MockMultipartHttpServletRequest();
-  request.addParameter("Article.title","title");
-  request.addParameter("Article.summary","summary");
-  request.addParameter("Article.text","text");
-  request.addParameter("Article.published","on");
-  Object a=new Object();
-  ServletRequestDataBinder binder=new ServletRequestDataBinder(a);
-  //binder.setDisallowedFields(new String[]{"published"});
-  binder.bind(request);
-  BindingResult result=binder.getBindingResult();
+//     MockMultipartHttpServletRequest request=new MockMultipartHttpServletRequest();
+//  request.addParameter("Article.title","title");
+//  request.addParameter("Article.summary","summary");
+//  request.addParameter("Article.text","text");
+//  request.addParameter("Article.published","on");
+//  Object a=new Object();
+//  ServletRequestDataBinder binder=new ServletRequestDataBinder(a);
+//  //binder.setDisallowedFields(new String[]{"published"});
+//  binder.bind(request);
+//  BindingResult result=binder.getBindingResult();
   
-  System.out.println(JSONObject.fromObject(a));
+//  System.out.println(JSONObject.fromObject(a));
 //  assertEquals(result.getErrorCount(),0);
 //  assertEquals(a.getTitle(),"title");
 //  assertEquals(a.getSummary(),"summary");

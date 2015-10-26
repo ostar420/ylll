@@ -31,12 +31,12 @@ public class CountryControllerTest extends BaseControllerTest {
 //         private String  _project_seq;
 //    private String  _project_version;
 //    private T _data ;
-        
-         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/vali").param("project_version", "z").param("project_seq", "project_version"))  
-           // .andExpect(MockMvcResultMatchers.view().name("redirect:list"))  
-            //.andExpect(MockMvcResultMatchers.model().attributeExists("allErrors"))  
-            .andDo(MockMvcResultHandlers.print())  
-            .andReturn();  
+//        
+//         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/vali").param("project_version", "z").param("project_seq", "project_version"))  
+//           // .andExpect(MockMvcResultMatchers.view().name("redirect:list"))  
+//            //.andExpect(MockMvcResultMatchers.model().attributeExists("allErrors"))  
+//            .andDo(MockMvcResultHandlers.print())  
+//            .andReturn();  
 //         //Assert.assertNotNull(result.getModelAndView().getModel().get("allErrors"));  
     }
 }

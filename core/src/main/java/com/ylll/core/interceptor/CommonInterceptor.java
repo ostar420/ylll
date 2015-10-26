@@ -50,10 +50,10 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 
         }
         
-        List<Country> list = new ArrayList<>();
-        ServletRequestDataBinder binder = new ServletRequestDataBinder(list);
-        binder.bind(request);
-        System.out.println(JSONArray.fromObject(list));
+//        List<Country> list = new ArrayList<>();
+//        ServletRequestDataBinder binder = new ServletRequestDataBinder(list);
+//        binder.bind(request);
+//        System.out.println(JSONArray.fromObject(list));
         
         
 //        RequestBean<Country> bean = new SpringRequestToBean<Country>().requestToBean(request);
@@ -70,24 +70,25 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 
         }
 
-        log.info("==============执行顺序: 1、preHandle================");
-        String requestUri = request.getRequestURI();
-        String contextPath = request.getContextPath();
-        String url = requestUri.substring(contextPath.length());
-
-        log.info("requestUri:" + requestUri);
-        log.info("contextPath:" + contextPath);
-        log.info("url:" + url);
-
-        String username = (String) request.getSession().getAttribute("user");
-        if (username == null) {
-        	//log.info("Interceptor：跳转到login页面！");
-            // throw new AccessDeniedException(" oh  no .");
-            //request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-            return true;
-        } else {
-            return true;
-        }
+//        log.info("==============执行顺序: 1、preHandle================");
+//        String requestUri = request.getRequestURI();
+//        String contextPath = request.getContextPath();
+//        String url = requestUri.substring(contextPath.length());
+//
+//        log.info("requestUri:" + requestUri);
+//        log.info("contextPath:" + contextPath);
+//        log.info("url:" + url);
+//
+//        String username = (String) request.getSession().getAttribute("user");
+//        if (username == null) {
+//        	//log.info("Interceptor：跳转到login页面！");
+//            // throw new AccessDeniedException(" oh  no .");
+//            //request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+//            return true;
+//        } else {
+//            return true;
+//        }
+         return true;
     }
 
     /**

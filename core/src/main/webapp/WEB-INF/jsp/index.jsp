@@ -16,14 +16,13 @@
         </style>
         <script>
             function click1(){
-                var tmp = [];
-               // tmp.project_seq='ssss';
-               // tmp.project_version='ddd';
+                var tmp = {};
+                tmp.project_seq='ssss';
+                tmp.project_version='ddd';
                 var Country = {};
                 Country.contrycode='13';
                 Country.contryname='1';
-                tmp.push(Country);
-                 tmp.push(Country);
+                tmp.data=Country;
                 callPost('./vali',tmp);
                 
             }
