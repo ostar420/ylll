@@ -17,7 +17,7 @@
         <script>
             function click1(){
                 var tmp = {};
-                tmp.project_seq='ssss';
+                tmp.project_seq='j8TX0NoZxK/PL4G7u94fHQ==1';
                 tmp.project_version='ddd';
                 var Country = {};
                 Country.countrycode='13';
