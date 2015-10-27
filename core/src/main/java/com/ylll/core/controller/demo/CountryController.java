@@ -2,7 +2,7 @@ package com.ylll.core.controller.demo;
 
 import com.github.pagehelper.PageInfo;
 import com.ylll.core.annotation.ParamVali;
-import com.ylll.core.model.RequestBean;
+import com.ylll.core.exception.SystemException;
 import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,9 +74,11 @@ public class CountryController {
 
     @RequestMapping(value = "vali")
     @ResponseBody
-    public void vali(RequestBean<Country> bean) {
+    //@ParamVali(bean=Country.class,params = {"countrycode"})
+    @ParamVali(bean=Country.class)
+    public void vali() {
+        
         System.out.println("------------------------------------");
-        System.out.println(bean.getProject_seq());
     }
 
     /**
@@ -89,7 +91,6 @@ public class CountryController {
     @RequestMapping(value = "save", method = RequestMethod.POST)
     // @Transactional(readOnly = false)//需要事务操作必须加入此注解
     public ModelAndView save(@Valid Country country, BindingResult bindingResult) {
-        
         
         ModelAndView result = new ModelAndView(redirect_list);
        // validator.validate(country, bindingResult);

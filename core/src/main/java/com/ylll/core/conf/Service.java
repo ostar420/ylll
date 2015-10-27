@@ -70,4 +70,8 @@ public class Service {
     public static String getMessageExceptionSystem() {
         return properties.getProperty(Environment.EXCEPTION_SYSTEM);
     }
+    public static String getProjectSeq() {
+        return properties.getProperty(Environment.PROJECT_SEQ);
+    }
+    
 }

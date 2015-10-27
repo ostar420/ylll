@@ -5,16 +5,14 @@
  */
 package com.ylll.core.model;
 
-import com.ylll.core.mybatis.model.CountryList;
 import com.ylll.core.mybatis.model.Country;
-import java.lang.annotation.Annotation;
+import com.ylll.core.mybatis.model.CountryList;
+import com.ylll.core.util.JsonToBean;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -84,23 +82,28 @@ public class CountryTest  {
 //        country1.setCountrycode("1");
 //        list.add(country);
 //        list.add(country1);
-//        CountryList clist = new CountryList();
+        CountryList clist = new CountryList();
 //        clist.setList(list);
 ////        
 ////        
 ////        
-//        String json = "{\"list\":[{\"countrycode\":\"\",\"countryname\":\"2\",\"id\":0},{\"countrycode\":\"1\",\"countryname\":\"\",\"id\":0}]}";
+//        String json = "{\"project_seq\":\"123\",\"project_version\":\"1.0\",\"data\":[{\"countrycode\":\"\",\"countryname\":\"2\",\"id\":0},{\"countrycode\":\"1\",\"countryname\":\"\",\"id\":0}]}";
 //        JSONObject obj = JSONObject.fromObject(json);
+//       JSONArray o  =  obj.getJSONArray("data");
 //        
-//        
-//        
-//        CountryList cli = (CountryList)JSONObject.toBean(obj, CountryList.class);
-//          CountryList cliCopy = copy(obj,CountryList.class);
-//         List<Country> lists =cli.getList();
-//         System.out.println("lists = " + lists.size());
-//        System.out.println(JSONObject.fromObject(cliCopy));
+//       
+//       RequestBeanTest cli = (RequestBeanTest)JSONObject.toBean(obj, RequestBeanTest.class);
+//       cli.setData(list);
+//          //CountryList cliCopy = copy(obj,CountryList.class);
+//        System.out.println(JSONObject.fromObject(cli));
+//        String jsonarr = "[{\"countrycode\":\"\",\"countryname\":\"2\",\"id\":0},{\"countrycode\":\"1\",\"countryname\":\"333\",\"id\":0}]";
+//
+//              List<Country> c = JsonToBean.convertToBeanList(jsonarr,Country.class);
+//              
+//              clist.setList(c);
+//              
 //        Set<ConstraintViolation<CountryList>> constraintViolations =
-//        validator.validate(cliCopy);
+//        validator.validate(clist);
 //         Iterator<ConstraintViolation<CountryList>> it =  constraintViolations.iterator();
 //         while (it.hasNext()) {
 //           System.out.println(it.next().getMessage());

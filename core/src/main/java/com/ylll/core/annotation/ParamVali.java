@@ -1,6 +1,6 @@
 package com.ylll.core.annotation;  
   
-import com.ylll.core.util.ParamValiUtil;
+import com.ylll.core.util.ParamUtil;
 import java.lang.annotation.*;  
   
 /** 
@@ -13,6 +13,11 @@ import java.lang.annotation.*;
 public  @interface ParamVali {  
     
     Class bean() ; 
+    /**
+     * 是否集合
+     * @return 
+     */
+    boolean isList() default false;
     
     /**
      *校验参数,默认全部校验
@@ -20,15 +25,9 @@ public  @interface ParamVali {
      */
     String[] params()  default {};  
     
-    /**
-     *校验方法
-     * ParamValiUtil.BEAN_TYPE等
-     * @return
-     */
-    String valiType()  default ParamValiUtil.BEAN_TYPE;  
 
     /**
-     *
+     *描述
      * @return
      */
     String description()  default "";  //

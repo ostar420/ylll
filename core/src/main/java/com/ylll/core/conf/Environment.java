@@ -29,6 +29,8 @@ public final class Environment {
     public static final String JDBC_URL = "jdbc.url";
     public static final String JDBC_USER = "jdbc.user";
     public static final String JDBC_PASSWORD = "jdbc.password";
+    
+    public static final String PROJECT_SEQ = "project.seq";
     //messages
     public static final String OPT_SUCCESS = "opt.success";
     public static final String OPT_ERROR = "opt.error";

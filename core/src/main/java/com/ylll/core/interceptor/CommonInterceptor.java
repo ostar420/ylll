@@ -4,17 +4,13 @@
 package com.ylll.core.interceptor;
 
 import com.ylll.core.annotation.ParamVali;
-import com.ylll.core.mybatis.model.Country;
-import com.ylll.core.util.ParamValiUtil;
-import java.util.ArrayList;
-import java.util.List;
+import com.ylll.core.model.ProjectPO;
+import com.ylll.core.util.ParamUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.sf.json.JSONArray;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -22,7 +18,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class CommonInterceptor extends HandlerInterceptorAdapter {
 
     private final Logger log = LoggerFactory.getLogger(CommonInterceptor.class);
-    public static final String LAST_PAGE = "com.alibaba.lastPage";
     /*
      * 利用正则映射到需要拦截的路径    
 	 
@@ -42,6 +37,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
      * @param response
      * @param handler
      * @return
+     * @throws java.lang.Exception
      */
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -49,25 +45,29 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
         if ("GET".equalsIgnoreCase(request.getMethod())) {
 
         }
-        
-//        List<Country> list = new ArrayList<>();
-//        ServletRequestDataBinder binder = new ServletRequestDataBinder(list);
-//        binder.bind(request);
-//        System.out.println(JSONArray.fromObject(list));
-        
-        
-//        RequestBean<Country> bean = new SpringRequestToBean<Country>().requestToBean(request);
-//        System.out.println(JSONObject.fromObject(bean));
+        try {
+
+            ParamUtil.executeValiProjectInfo(request);
+            log.debug("==============系统校验通过================");
+        }
+        catch (Exception e) {
+            log.debug("==============系统校验不通过================");
+            throw e;
+        }
         if (handler.getClass().isAssignableFrom(HandlerMethod.class)) {
-
             ParamVali paramVali = ((HandlerMethod) handler).getMethodAnnotation(ParamVali.class);
-            
             if (paramVali != null) {
-                log.debug("==============执行参数校验================");
-                ParamValiUtil.execute(request, paramVali);
-                log.debug("==============参数校验正确================");
-            }
+                try {
+                    log.debug("==============执行参数校验================");
+                    ParamUtil.executeValiPara(request, paramVali);
+                    log.debug("==============参数校验正确================");
 
+                }
+                catch (Exception e) {
+                    log.debug("==============参数有误================");
+                    throw e;
+                }
+            }
         }
 
 //        log.info("==============执行顺序: 1、preHandle================");
@@ -88,7 +88,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 //        } else {
 //            return true;
 //        }
-         return true;
+        return true;
     }
 
     /**
@@ -98,15 +98,13 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
      * @param response
      * @param handler
      * @param modelAndView
+     * @throws java.lang.Exception
      */
     @Override
     public void postHandle(HttpServletRequest request,
             HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
-        log.info("==============执行顺序: 2、postHandle================");
-        if (modelAndView != null) {  //加入当前时间  
-            modelAndView.addObject("var", "测试postHandle");
-        }
+        //log.debug("==============执行顺序: 2、postHandle================");
     }
 
     /**
@@ -117,13 +115,14 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
      * @param request
      * @param response
      * @param handler
+     * @param ex
      * @throws java.lang.Exception
      */
     @Override
     public void afterCompletion(HttpServletRequest request,
             HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-        log.info("==============执行顺序: 3、afterCompletion================");
+        // log.debug("==============执行顺序: 3、afterCompletion================");
     }
 
 }

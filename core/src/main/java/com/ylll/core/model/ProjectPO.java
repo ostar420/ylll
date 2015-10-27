@@ -5,17 +5,25 @@
  */
 package com.ylll.core.model;
 
+import com.ylll.core.annotation.vali.ProjectSeq;
+
 /**
  *
  * @author YL
- * @param <T>
  */
-public class RequestBean<T> {
+public class ProjectPO {
     
+    /**
+     * 项目序列号
+     */
+    @ProjectSeq
     private String  project_seq;
+    
+    /**
+     * 项目版本号
+     */
     private String  project_version;
-    private T data ;
- 
+
     /**
      * @return the project_seq
      */
@@ -44,19 +52,6 @@ public class RequestBean<T> {
         this.project_version = project_version;
     }
 
-    /**
-     * @return the data
-     */
-    public T getData() {
-        return data;
-    }
-
-    /**
-     * @param data the data to set
-     */
-    public void setData(T data) {
-        this.data = data;
-    }
-
    
+    
 }

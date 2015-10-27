@@ -20,9 +20,10 @@
                 tmp.project_seq='ssss';
                 tmp.project_version='ddd';
                 var Country = {};
-                Country.contrycode='13';
-                Country.contryname='1';
-                tmp.data=Country;
+                Country.countrycode='13';
+                Country.countryname='33';
+                tmp.data = JSON.stringify(Country);
+                
                 callPost('./vali',tmp);
                 
             }

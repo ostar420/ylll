@@ -6,7 +6,7 @@ import net.sf.json.JSONObject;
  *
  * 用于返回结果的实体类
  */
-public class ReturnMessage {
+public class MessagePO {
     
     /**
      *
@@ -31,14 +31,14 @@ public class ReturnMessage {
     /**
      * 默认构造器 默认赋值 结果标识this.flag = SUCCESS;
      */
-    public ReturnMessage(){
+    public MessagePO(){
         this.flag = SUCCESS;
     }
     /**
      * 默认赋值 结果标识this.flag = SUCCESS;
      * @param content  内容
      */
-    public ReturnMessage(String content){
+    public MessagePO(String content){
          this.flag = SUCCESS;
          this.content = content;
     }
@@ -47,7 +47,7 @@ public class ReturnMessage {
      * @param flag 结果标识(success,error,warning)
      * @param content  内容
      */
-    public ReturnMessage(String flag,String content){
+    public MessagePO(String flag,String content){
          this.flag = flag;
          this.content = content;
     }
@@ -57,7 +57,7 @@ public class ReturnMessage {
      * @param content 内容
      * @param obj  自定义对象
      */
-    public ReturnMessage(String flag,String content,Object obj){
+    public MessagePO(String flag,String content,Object obj){
          this.flag = flag;
          this.content = content;
          this.obj = obj;
