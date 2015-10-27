@@ -16,7 +16,7 @@ public class ProjectPO {
     /**
      * 项目序列号
      */
-    @ProjectSeq(message = "{ylll.project.seq.error}")
+    @ProjectSeq
     private String  project_seq;
     
     /**
