@@ -84,7 +84,7 @@
         <!-- 资源文件名-->  
         <property name="basenames">     
             <list>      
-                <value>classpath:validation/ValidationMessages_${project.language}</value>
+                <value>classpath:validation/ValidationMessages_${project.language}.properties</value>
             </list>     
         </property>  
         <!-- 资源文件编码格式 -->  

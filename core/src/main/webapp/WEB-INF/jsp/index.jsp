@@ -18,7 +18,7 @@
             function click1(){
                 var tmp = {};
                 tmp.project_seq='j8TX0NoZxK/PL4G7u94fHQ==1';
-                tmp.project_version='ddd';
+                tmp.project_version='1.0';
                 var Country = {};
                 Country.countrycode='13';
                 Country.countryname='33';
