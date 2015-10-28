@@ -1,6 +1,7 @@
 package com.ylll.core.service;
 
 import com.ylll.core.mybatis.model.Country;
+import com.ylll.core.mybatis.model.UserInfo;
 
 import java.util.List;
 
@@ -8,18 +9,18 @@ import java.util.List;
  *
  * @author YL
  */
-public interface CountryService extends BaseService<Country> {
+public interface UserInfoService extends BaseService<UserInfo> {
 
     /**
      * 根据条件分页查询
      *
-     * @param country
+     * @param userInfo
      * @param page
      * @param rows
      * @return
      * @throws java.lang.Exception
      */
-    List<Country> selectByCountry(Country country, int page, int rows) throws Exception;
+    List<UserInfo> selectByUserInfo(UserInfo userInfo, int page, int rows) throws Exception;
     
     /**
      *
@@ -27,7 +28,7 @@ public interface CountryService extends BaseService<Country> {
      * @return
      * @throws Exception
      */
-    int batchInsertCountry(List<Country> list) throws Exception;
+    int batchInsertUser(List<UserInfo> list) throws Exception;
 
     /**
      *
@@ -35,6 +36,6 @@ public interface CountryService extends BaseService<Country> {
      * @return
      * @throws Exception
      */
-    int batchDeleteCountry(List<Integer> list) throws Exception;
+    int batchDeleteUser(List<String> list) throws Exception;
 
 }

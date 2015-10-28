@@ -16,7 +16,22 @@ import static java.lang.annotation.ElementType.METHOD;
 @Constraint(validatedBy = ProjectSeqValidator.class)
 @Documented
 public @interface ProjectSeq {
+
+    /**
+     *
+     * @return
+     */
     String message() default "{ylll.project.seq.error}";
+
+    /**
+     *
+     * @return
+     */
     Class<?>[] groups() default {};
+
+    /**
+     *
+     * @return
+     */
     Class<? extends Payload>[] payload() default {};
 }

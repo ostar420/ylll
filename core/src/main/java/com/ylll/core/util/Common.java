@@ -364,5 +364,25 @@ public class Common {
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.divide(b2,scale,BigDecimal.ROUND_HALF_UP).doubleValue();
     }
+    
+    public static int convertToInt(String str){
+        return convertToInt(str,0);
+    }
+    /**
+     * 
+     * @param str
+     * @param defualt
+     * @return 
+     */
+    public static int convertToInt(String str,int defualt){
+        if(isEmpty(str))
+            return defualt;
+        try {
+            return Integer.parseInt(str);
+        }
+        catch (Exception e) {
+            return defualt;
+        }
+    }
   
 }

@@ -100,7 +100,7 @@ public class Log  implements java.io.Serializable {
     /**
      * 时间格式化
      *
-     * @author lanyuan Email：mmm333zzz520@163.com date：2014-2-17
+      *date：2014-2-17
      * @return
      */
     @JsonSerialize(using = JsonDateSerializer.class)

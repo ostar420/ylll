@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ylll.core.util;
 
 import java.beans.IntrospectionException;
@@ -23,6 +18,7 @@ import org.slf4j.LoggerFactory;
  * @author YL
  */
 public class JsonToBean {
+    
     private static final Logger logger = LoggerFactory.getLogger(JsonToBean.class);
     /**
      * 
@@ -102,7 +98,7 @@ public class JsonToBean {
                String propertyName = String.valueOf(obj); 
                if(isCheckBeanExitsPropertyName(cla,propertyName)){
                    Object propertyValue = json.get(obj);
-                    setProperties(t,propertyName,propertyValue);
+                   setProperties(t,propertyName,propertyValue);
                }
            }
        }
@@ -117,7 +113,8 @@ public class JsonToBean {
 			if(null != field){
 				retValue = true;
 			}
-		} catch (NoSuchFieldException e) {			
+		} catch (NoSuchFieldException e) {
+                        if(!propertyName.equalsIgnoreCase(ParamUtil.PAGE_PARAM) &&!propertyName.equalsIgnoreCase(ParamUtil.ROWS_PARAM) )
 			logger.debug("类: " + clazz.getSimpleName()+",不存在属性名: "+propertyName+" ,详细错误信息: "+e.getMessage());		
 		}
 		return retValue;

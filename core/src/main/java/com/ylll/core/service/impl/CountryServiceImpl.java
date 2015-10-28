@@ -19,7 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Service
 public class CountryServiceImpl extends BaseServiceImpl<Country> implements CountryService {
     
-    
+    /**
+     *
+     */
     @Autowired
     protected CountryMapper countryMapper;
     @Override
@@ -77,12 +79,24 @@ public class CountryServiceImpl extends BaseServiceImpl<Country> implements Coun
         return mapper.updateByPrimaryKey(entity);
     }
 
+    /**
+     *
+     * @param list
+     * @return
+     * @throws Exception
+     */
     @Override
     @SystemLog(module = "测试模块", methods = "批量添加")
     public int batchInsertCountry(List<Country> list) throws Exception {
       return   countryMapper.batchInsertCountry(list);
     }
 
+    /**
+     *
+     * @param list
+     * @return
+     * @throws Exception
+     */
     @Override
      @SystemLog(module = "测试模块", methods = "批量删除")
     public int batchDeleteCountry(List<Integer> list) throws Exception {

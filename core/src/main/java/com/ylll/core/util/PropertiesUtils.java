@@ -34,6 +34,7 @@ public class PropertiesUtils {
 
 	/**
 	 * 返回　Properties@return
+     * @return 
 	 */
 	public static Properties getProperties(){
 		Properties prop = new Properties();

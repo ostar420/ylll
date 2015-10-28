@@ -1,6 +1,6 @@
 package com.ylll.core.mybatis.mapper;
 
-import com.ylll.core.mybatis.model.Country;
+import com.ylll.core.mybatis.model.UserInfo;
 import com.ylll.core.util.MyMapper;
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author YL
  */
-public interface CountryMapper extends MyMapper<Country> {
+public interface UserInfoMapper extends MyMapper<UserInfo> {
     
     /**
      *
@@ -16,7 +16,7 @@ public interface CountryMapper extends MyMapper<Country> {
      * @return
      * @throws Exception
      */
-    int batchInsertCountry(List<Country> list) throws Exception;
+    int batchInsertUser(List<UserInfo> list) throws Exception;
     
     /**
      *
@@ -24,5 +24,5 @@ public interface CountryMapper extends MyMapper<Country> {
      * @return
      * @throws Exception
      */
-    int batchDeleteCountry(List<Integer> list) throws Exception;
+    int batchDeleteUser(List<String> list) throws Exception;
 }

@@ -17,7 +17,6 @@ public class TreeUtil {
 	 * 根据父节点的ID获取所有子节点
 	 * @param list 分类表
      * @param praentId
-	 * @param typeId 传入的父节点ID
 	 * @return String
 	 */
 	public static List<TreeObject> getChildResourcess(List<TreeObject> list,int praentId) {

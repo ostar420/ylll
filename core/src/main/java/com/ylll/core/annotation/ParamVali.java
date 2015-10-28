@@ -1,6 +1,5 @@
 package com.ylll.core.annotation;  
   
-import com.ylll.core.util.ParamUtil;
 import java.lang.annotation.*;  
   
 /** 
@@ -12,7 +11,11 @@ import java.lang.annotation.*;
 @Documented  
 public  @interface ParamVali {  
     
-    Class bean() ; 
+    /**
+     *
+     * @return
+     */
+    Class bean(); 
     /**
      * 是否集合
      * @return 

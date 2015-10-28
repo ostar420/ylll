@@ -9,6 +9,10 @@ import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.beanutils.BeanUtils;
 
+/**
+ *
+ * @author YL
+ */
 public class RequestToBean {
 	
 	/**
@@ -100,6 +104,9 @@ public class RequestToBean {
      * @param object          实例对象  
      * @param propertyName 属性名  
      * @param value        新的字段值  
+     * @throws java.beans.IntrospectionException  
+     * @throws java.lang.IllegalAccessException  
+     * @throws java.lang.reflect.InvocationTargetException  
      */   
     public static void setProperties(Object object, String propertyName,Object value) throws IntrospectionException,   
             IllegalAccessException, InvocationTargetException {   

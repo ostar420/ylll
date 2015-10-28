@@ -18,6 +18,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  */
 public class ProjectSeqUtil {
     private static final Logger logger = LoggerFactory.getLogger(ProjectSeqUtil.class);
+
+    /**
+     *
+     * @param project_seq
+     * @return
+     */
     public static boolean sign(String project_seq) {
         if(project_seq == null) return false;
         project_seq = project_seq.trim();
@@ -36,6 +42,12 @@ public class ProjectSeqUtil {
         }
     }
 
+    /**
+     *
+     * @param ip
+     * @return
+     * @throws Exception
+     */
     public static String getProjectSeq(String ip) throws Exception {
         String iSeq = Service.getProjectSeq();
         String seq = iSeq + ip;

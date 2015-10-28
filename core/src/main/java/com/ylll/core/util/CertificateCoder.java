@@ -28,6 +28,9 @@ public abstract class CertificateCoder extends Coder {
      */
     public static final String KEY_STORE = "JKS";
  
+    /**
+     *
+     */
     public static final String X509 = "X.509";
  
     /**
@@ -252,6 +255,7 @@ public abstract class CertificateCoder extends Coder {
     /**
      * 签名
      * 
+     * @param sign
      * @param keyStorePath
      * @param alias
      * @param password
@@ -306,6 +310,7 @@ public abstract class CertificateCoder extends Coder {
     /**
      * 验证Certificate
      * 
+     * @param date
      * @param keyStorePath
      * @param alias
      * @param password

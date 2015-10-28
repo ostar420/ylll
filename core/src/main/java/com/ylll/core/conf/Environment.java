@@ -15,31 +15,101 @@ import org.slf4j.LoggerFactory;
  */
 public final class Environment {
 
+    /**
+     *
+     */
     public static final String CONF_PATH = Common.FILE_SEPARATOR + "config.properties";
 
+    /**
+     *
+     */
     public static final String MESSAGE_DIR = Common.FILE_SEPARATOR + "messages";
 
     private static final Properties GLOBAL_PROPERTIES;
 
     private static final Logger log = LoggerFactory.getLogger(Environment.class);
 
+    /**
+     *
+     */
     public static final String PROJECT_LANGUAGE = "project.language";
+
+    /**
+     *
+     */
     public static final String PROJECT_VERSION = "project.version";
+
+    /**
+     *
+     */
     public static final String JDBC_DRIVERCLASS = "jdbc.driverClass";
+
+    /**
+     *
+     */
     public static final String JDBC_URL = "jdbc.url";
+
+    /**
+     *
+     */
     public static final String JDBC_USER = "jdbc.user";
+
+    /**
+     *
+     */
     public static final String JDBC_PASSWORD = "jdbc.password";
     
+    /**
+     *
+     */
     public static final String PROJECT_SEQ = "project.seq";
     //messages
-    public static final String OPT_SUCCESS = "opt.success";
+
+    /**
+     *
+     */
+        public static final String OPT_SUCCESS = "opt.success";
+
+    /**
+     *
+     */
     public static final String OPT_ERROR = "opt.error";
+
+    /**
+     *
+     */
     public static final String VALIDATION_SUCCESS = "validation.success";
+
+    /**
+     *
+     */
     public static final String VALIDATION_ERROR = "validation.error";
+
+    /**
+     *
+     */
     public static final String ACCESS_DENIED = "access.denied";
+
+    /**
+     *
+     */
     public static final String EXCEPTION_ACCESS_DENIED = "exception.access.denied";
+
+    /**
+     *
+     */
     public static final String EXCEPTION_PARAMETER = "exception.parameter";
+
+    /**
+     *
+     */
     public static final String EXCEPTION_SYSTEM = "exception.system";
+    
+    /**
+     *
+     */
+    public static final String PAGE_ROWS = "page.rows";
+    
 
     static {
         GLOBAL_PROPERTIES = new Properties();
@@ -49,10 +119,17 @@ public final class Environment {
     private Environment() {
     }
 
+    /**
+     *
+     */
     public static void reload() {
         init();
     }
 
+    /**
+     *
+     * @return
+     */
     public static Properties getProperties() {
         Properties copy = new Properties();
         copy.putAll(GLOBAL_PROPERTIES);

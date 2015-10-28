@@ -29,17 +29,17 @@ public class MessagePO {
     private Object obj;//自定义对象
     
     /**
-     * 默认构造器 默认赋值 结果标识this.flag = SUCCESS;
+     * 默认构造器 默认赋值 结果标识this.flag = ERROR;
      */
     public MessagePO(){
-        this.flag = SUCCESS;
+        this.flag = ERROR;
     }
     /**
-     * 默认赋值 结果标识this.flag = SUCCESS;
+     * 默认赋值 结果标识this.flag = ERROR;
      * @param content  内容
      */
     public MessagePO(String content){
-         this.flag = SUCCESS;
+         this.flag = ERROR;
          this.content = content;
     }
     

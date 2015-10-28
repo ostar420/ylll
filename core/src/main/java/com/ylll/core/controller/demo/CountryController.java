@@ -2,7 +2,6 @@ package com.ylll.core.controller.demo;
 
 import com.github.pagehelper.PageInfo;
 import com.ylll.core.annotation.ParamVali;
-import com.ylll.core.exception.SystemException;
 import com.ylll.core.mybatis.model.Country;
 import com.ylll.core.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +71,9 @@ public class CountryController {
         return result;
     }
 
+    /**
+     *
+     */
     @RequestMapping(value = "vali")
     @ResponseBody
     //@ParamVali(bean=Country.class,params = {"countrycode"})

@@ -15,6 +15,10 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/**
+ *
+ * @author YL
+ */
 public class CommonInterceptor extends HandlerInterceptorAdapter {
 
     private final Logger log = LoggerFactory.getLogger(CommonInterceptor.class);
@@ -45,6 +49,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
         if ("GET".equalsIgnoreCase(request.getMethod())) {
 
         }
+        //这里只进行了 序列号校验 也可以和session 混合校验
         try {
 
             ParamUtil.executeValiProjectInfo(request);
@@ -54,6 +59,8 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
             log.debug("==============系统校验不通过================");
             throw e;
         }
+        
+        //参数校验
         if (handler.getClass().isAssignableFrom(HandlerMethod.class)) {
             ParamVali paramVali = ((HandlerMethod) handler).getMethodAnnotation(ParamVali.class);
             if (paramVali != null) {
