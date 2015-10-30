@@ -23,32 +23,32 @@ public class UserInfoControllerTest extends BeseSpringTestSupport {
      */
     private  static  final String baseUrl ="/user/";
     
-    @Test
+    //@Test
     public void testFindPage() throws Exception {
         System.out.println("findPage");
         String data = "{\"name\":\"%3\",\"_page\":2,\"_rows\":10}";
         MvcResult result = basePerformMock(data, baseUrl+"findPage");
     }
-    @Test
+    //@Test
     public void testAdd() throws Exception {
         System.out.println("add");
-        String data = "{\"name\":\"fff\",\"id\":\"3\"}";
+        String data = "{\"name\":\"ffs ff\",\"id\":\"3\"}";
         MvcResult result = basePerformMock(data, baseUrl+"add");
     }
     
-    @Test
+    //@Test
     public void testUpdate() throws Exception {
         System.out.println("update");
         String data = "{\"name\":\"fff\",\"id\":\"3\"}";
         MvcResult result = basePerformMock(data, baseUrl+"update");
     }
-    @Test
+    //@Test
     public void testDelete() throws Exception {
         System.out.println("delete");
         String data = "{\"name\":\"fff\",\"id\":\"3\"}";
         MvcResult result = basePerformMock(data, baseUrl+"delete");
     }
-    @Test
+    //@Test
     public void findSingle() throws Exception {
         System.out.println("findSingle");
         String data = "{\"name\":\"fff\",\"id\":\"4\"}";

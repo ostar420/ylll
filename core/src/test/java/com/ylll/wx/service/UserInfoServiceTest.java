@@ -5,13 +5,10 @@
  */
 package com.ylll.wx.service;
 
-import com.ylll.wx.service.UserInfoService;
 import com.ylll.core.BeseSpringTestSupport;
 import com.ylll.wx.model.UserInfo;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
