@@ -29,7 +29,7 @@ public class UserInfoControllerTest extends BeseSpringTestSupport {
         String data = "{\"name\":\"%3\",\"_page\":2,\"_rows\":10}";
         MvcResult result = basePerformMock(data, baseUrl+"findPage");
     }
-    //@Test
+    @Test
     public void testAdd() throws Exception {
         System.out.println("add");
         String data = "{\"name\":\"ffs ff\",\"id\":\"3\"}";
