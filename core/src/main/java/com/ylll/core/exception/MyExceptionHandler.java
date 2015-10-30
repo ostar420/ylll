@@ -1,7 +1,7 @@
 package com.ylll.core.exception;
 
 import com.ylll.core.conf.Service;
-import com.ylll.core.model.MessagePO;
+import com.ylll.core.poj.MessagePO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;

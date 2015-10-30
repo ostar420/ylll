@@ -4,7 +4,7 @@
 package com.ylll.core.interceptor;
 
 import com.ylll.core.annotation.ParamVali;
-import com.ylll.core.model.ProjectPO;
+import com.ylll.core.poj.ProjectPO;
 import com.ylll.core.util.ParamUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

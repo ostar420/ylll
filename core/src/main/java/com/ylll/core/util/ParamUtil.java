@@ -5,7 +5,7 @@ import com.ylll.core.conf.Environment;
 import com.ylll.core.conf.Service;
 import com.ylll.core.exception.AccessDeniedException;
 import com.ylll.core.exception.ParameterException;
-import com.ylll.core.model.ProjectPO;
+import com.ylll.core.poj.ProjectPO;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;

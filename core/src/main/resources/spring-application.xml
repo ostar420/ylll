@@ -62,7 +62,11 @@
                 <value>classpath:mapper/*.xml</value>
             </array>
         </property>
-        <property name="typeAliasesPackage" value="com.ylll.core.mybatis.model"/>
+        <property name="typeAliasesPackage" >
+              <value>
+                  com.ylll.**.mapper
+              </value>
+        </property>
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
@@ -78,7 +82,7 @@
     </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ylll.core.mybatis.mapper"/>
+        <property name="basePackage" value="com.ylll.**.mapper"/>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
         <property name="markerInterface" value="com.ylll.core.util.MyMapper"/>
         <!-- 通用Mapper通过属性注入进行配置，默认不配置时会注册Mapper<T>接口
@@ -103,7 +107,7 @@
 	
     <aop:aspectj-autoproxy />
     <!-- 使用Spring组件扫描的方式来实现自动注入bean -->
-    <context:component-scan base-package="com.ylll.core.task" />
+    <context:component-scan base-package="com.ylll.**.task" />
     <!-- 隐式地向 Spring 容器注册 -->
     <context:annotation-config />
 </beans>

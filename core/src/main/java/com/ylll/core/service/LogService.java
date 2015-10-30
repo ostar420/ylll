@@ -1,6 +1,6 @@
 package com.ylll.core.service;
 
-import com.ylll.core.mybatis.model.Log;
+import com.ylll.core.model.Log;
 import java.util.List;
 
 /**
