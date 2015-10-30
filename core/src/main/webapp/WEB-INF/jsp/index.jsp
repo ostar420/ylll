@@ -19,12 +19,17 @@
                 var tmp = {};
                 tmp.project_seq='j8TX0NoZxK/PL4G7u94fHQ==';
                 tmp.project_version='1.0';
-                var Country = {};
-                Country.countrycode='13';
-                Country.countryname='33';
-                tmp.data = JSON.stringify(Country);
+                var obj = {};
+                obj.name='onmygod';
+                obj.id='113';
+                obj.tel='13';
+                obj.phone='13';
+                obj.email='13@email.com';
+                obj.address='13';
+
+                tmp.data = JSON.stringify(obj);
                 
-                callPost('./vali',tmp);
+                callPost('./user/add',tmp);
                 
             }
             function callPost(url,data){

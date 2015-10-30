@@ -1,5 +1,5 @@
 
-package com.ylll.core.task;
+package com.ylll.wx.task;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Lazy(false)
-public class SpringTaskController {
+public class WXSpringTaskController {
 	
 	/**
 	 * 与用户设置的使用率比较 spirng 调度
@@ -37,10 +37,10 @@ public class SpringTaskController {
          *"0 15 10 ? * 5#3" 每个月第三周的星期四的10点15分0秒触发任务
 	 * @throws Exception
 	 */
-	//@Scheduled(cron = "1 * *  * * ? ")
+	@Scheduled(cron = "1 * *  * * ? ")
 	public void task() throws Exception {
 		// do somethings
             
-            System.out.println("this is core task..............");
+            System.out.println("this is wx task..............");
 	}
 }
